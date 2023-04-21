@@ -6,7 +6,7 @@ function CoffeeList(props) {
   return (
     <React.Fragment>
     <hr/>
-    {props.CoffeeList.map((coffee) =>
+    {props.coffeeList.map((coffee) =>
       <Coffee 
         whenCoffeeClicked = { props.onCoffeeSelection }
         whenRestockClicked = { props.onRestock }
