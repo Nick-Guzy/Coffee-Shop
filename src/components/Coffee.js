@@ -12,6 +12,8 @@ function Coffee(props) {
         <p>Left in stock: {props.quantity}</p>
         <hr />
       </div>
+        <button onClick={() => props.whenAddToCartClicked(props)}
+        type="sumit">Add to Cart</button><span> </span>
       <div onClick={() => props.whenRestockClicked(props.id)}>
       <button type="submit">Restock</button>
       </div>
@@ -19,14 +21,14 @@ function Coffee(props) {
   );
 }
 
-Coffee.propTypes = { //name, price, desc, quantity
+Coffee.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  //Roast = description
+  //Origin = name
   description: PropTypes.string.isRequired,
   quantity: PropTypes.number,
   id: PropTypes.string,
-  // whenCoffeeClicked: PropTypes.func,
-  // onRestock: PropTypes.func
 };
 
 

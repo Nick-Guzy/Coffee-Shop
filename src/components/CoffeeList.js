@@ -10,6 +10,7 @@ function CoffeeList(props) {
       <Coffee 
         whenCoffeeClicked = { props.onCoffeeSelection }
         whenRestockClicked = { props.onRestock }
+        whenAddToCartClicked = { props.onAddToCart }
         name={coffee.name}
         price={coffee.price}
         description={coffee.description}
