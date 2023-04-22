@@ -16,23 +16,35 @@ function NewCoffeeForm(props) {
   }
   return (
     <React.Fragment>
+      <br></br>
+      <b>Columbian-Light-Medium-Dark | Kenyan-Light-Medium-Dark | Ethopian-Light-Medium-Dark</b>
       <form onSubmit={handleNewCoffeeFormSubmission}>
         <p>Coffee:  
-        <input
-          type='text'
+
+          <select
           name='origin'
-          placeholder='origin of Coffee' /><br></br></p>
+          id='Origin'>
+            <option value="Columbian">Columbian</option>
+            <option value="Ethiopian">Ethiopian</option>
+            <option value="Kenyan">Kenyan</option>
+          </select>
+        <br></br></p>
         <input
           type='number'
           name='price'
           placeholder='Price' /><br></br>
-        <textarea
-          name='roast'
-          placeholder='Roast' /><br></br>
+        <select name='roast'
+          id='Roast' >
+          <option value="Light">Light</option>
+          <option value="Medium">Medium</option>
+          <option value="Dark">Dark</option>
+        </select>
+        <br></br>
         <input
           type='number'
           name='quantity'
-          placeholder='Quantity' /><br></br>
+          placeholder='Quantity' 
+          defaultValue='130'/><br></br>
         <button type='submit'>Submit Coffee!</button>
       </form>
     </React.Fragment>
