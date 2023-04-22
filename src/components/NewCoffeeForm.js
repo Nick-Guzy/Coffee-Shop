@@ -7,9 +7,9 @@ function NewCoffeeForm(props) {
   function handleNewCoffeeFormSubmission(event) {
     event.preventDefault();
     props.onNewCoffeeCreation({
-      name: event.target.name.value,
+      origin: event.target.origin.value,
       price: event.target.price.value,
-      description: event.target.description.value,
+      roast: event.target.roast.value,
       quantity: event.target.quantity.value,
       id: v4()
     });
@@ -20,15 +20,15 @@ function NewCoffeeForm(props) {
         <p>Coffee:  
         <input
           type='text'
-          name='name'
-          placeholder='Name of Coffee' /><br></br></p>
+          name='origin'
+          placeholder='origin of Coffee' /><br></br></p>
         <input
           type='number'
           name='price'
           placeholder='Price' /><br></br>
         <textarea
-          name='description'
-          placeholder='Description' /><br></br>
+          name='roast'
+          placeholder='Roast' /><br></br>
         <input
           type='number'
           name='quantity'

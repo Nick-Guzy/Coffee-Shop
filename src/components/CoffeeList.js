@@ -11,9 +11,9 @@ function CoffeeList(props) {
         whenCoffeeClicked = { props.onCoffeeSelection }
         whenRestockClicked = { props.onRestock }
         whenAddToCartClicked = { props.onAddToCart }
-        name={coffee.name}
+        origin={coffee.origin}
         price={coffee.price}
-        description={coffee.description}
+        roast={coffee.roast}
         quantity={coffee.quantity}
         id={coffee.id}
         key={coffee.id}/>
