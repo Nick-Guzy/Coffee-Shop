@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import CoffeeBag from "./../img/CoffeeBag.png";
 
 function Coffee(props) {
 
@@ -10,6 +10,7 @@ function Coffee(props) {
         <h3><em>{props.origin} - ${props.price}</em></h3>
         <p><ul><li>{props.roast}</li></ul></p>
         <p>Left in stock: {props.quantity}</p>
+        <img src={CoffeeBag} alt="coffeeBag" width="100" height="100"></img>
         <hr />
       </div>
         <button onClick={() => props.whenAddToCartClicked(props)}
@@ -26,6 +27,7 @@ Coffee.propTypes = {
   price: PropTypes.number.isRequired,
   roast: PropTypes.string.isRequired,
   quantity: PropTypes.number,
+  pic: <img src={CoffeeBag} alt="coffeeBag"></img>,
   id: PropTypes.string,
 };
 
