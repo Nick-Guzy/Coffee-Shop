@@ -11,7 +11,6 @@ class CoffeeControl extends React.Component {
       mainCoffeeList: [],
       mainCoffeeCart: [],
       selectedCoffee: null,
-      // lowCoffee: null,
     };
   }
 
