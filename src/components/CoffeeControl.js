@@ -48,10 +48,12 @@ class CoffeeControl extends React.Component {
     if (newCoffeeInCart && newCoffeeInList && newCoffeeInList.quantity >= 1) {
       newCoffeeInCart.quantity += 1;
       newCoffeeInList.quantity -= 1;
-      if (newCoffeeInList.quantity < 20) {
+      if (newCoffeeInList.quantity <= 10 && newCoffeeInList.quantity > 0) {
         newCoffeeInList.low = "Coffee low";
+      } else if (newCoffeeInList.quantity <= 0) {
+        newCoffeeInList.low = "Out of Stock";
       }
-    } else if (newCoffeeInList.quantity >= 1) {
+      } else if (newCoffeeInList.quantity >= 1) {
       let initialCoffeeToAdd = { ...newCoffee, quantity: 1 };
       newMainCoffeeCart.push(initialCoffeeToAdd);
       newCoffeeInList.quantity -= 1;
@@ -72,14 +74,17 @@ class CoffeeControl extends React.Component {
 
   restock = (inputId) => {
     let newRestockCoffeeList = this.state.mainCoffeeList;
-    newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0]
-      .quantity++;
+    let restockCoffee = newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0];
+      restockCoffee.quantity++;
     if (
-      newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0]
-        .quantity >= 20
+      restockCoffee.quantity > 10
     ) {
-      newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0].low =
-        null;
+      restockCoffee.low = null;
+    }
+    else if(
+      restockCoffee.quantity > 0 && restockCoffee.quantity < 10)      
+      {
+        restockCoffee.low = "Coffee low";
     }
     this.setState({
       mainCoffeeList: newRestockCoffeeList,
