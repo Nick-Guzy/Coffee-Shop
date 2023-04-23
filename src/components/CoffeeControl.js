@@ -11,6 +11,7 @@ class CoffeeControl extends React.Component {
       mainCoffeeList: [],
       mainCoffeeCart: [],
       selectedCoffee: null,
+      // lowCoffee: null,
     };
   }
 
@@ -47,6 +48,9 @@ class CoffeeControl extends React.Component {
     if (newCoffeeInCart && newCoffeeInList && newCoffeeInList.quantity >= 1) {
       newCoffeeInCart.quantity += 1;
       newCoffeeInList.quantity -= 1;
+      if (newCoffeeInList.quantity < 20) {
+        newCoffeeInList.low = "Coffee low";
+      }
     } else if (newCoffeeInList.quantity >= 1) {
       let initialCoffeeToAdd = { ...newCoffee, quantity: 1 };
       newMainCoffeeCart.push(initialCoffeeToAdd);
@@ -70,11 +74,19 @@ class CoffeeControl extends React.Component {
     let newRestockCoffeeList = this.state.mainCoffeeList;
     newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0]
       .quantity++;
+    if (
+      newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0]
+        .quantity >= 20
+    ) {
+      newRestockCoffeeList.filter((coffee) => coffee.id === inputId)[0].low =
+        null;
+    }
     this.setState({
       mainCoffeeList: newRestockCoffeeList,
       formVisibleOnPage: false,
     });
   };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -103,6 +115,11 @@ class CoffeeControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
+        <div>
+          {this.state.lowInventoryMessage && (
+            <p>{this.state.lowInventoryMessage}</p>
+          )}
+        </div>
       </React.Fragment>
     );
   }
