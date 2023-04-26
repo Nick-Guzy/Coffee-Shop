@@ -37,12 +37,14 @@ function Coffee(props) {
 }
 
 Coffee.propTypes = {
+  whenCoffeeClicked: PropTypes.func,
+  whenRestockClicked: PropTypes.func,
+  whenAddToCartClicked:PropTypes.func,
   origin: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   roast: PropTypes.string.isRequired,
   quantity: PropTypes.number,
-  pic: <img src={CoffeeBag} alt="coffeeBag"></img>,
-  low: <h2 style={{ color: "yellow" }}>Coffee low</h2>,
+  low: PropTypes.string,
   id: PropTypes.string,
 };
 

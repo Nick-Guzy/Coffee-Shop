@@ -27,7 +27,8 @@ function CoffeeList(props) {
 CoffeeList.propTypes = {
   coffeeList: PropTypes.array,
   onCoffeeSelection: PropTypes.func,
-  onRestock: PropTypes.func
+  onRestock: PropTypes.func,
+  onAddToCart: PropTypes.func
 };
 
 export default CoffeeList;
